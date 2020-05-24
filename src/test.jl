@@ -26,7 +26,7 @@ p = [VMeasure(dobs[2k-1],exp(dobs[2k]),.1,0.1) for k in 1:np]
 sh = [VMeasure(dobs[2np+2k-1],exp(dobs[2np+2k]),.1,0.1) for k in 1:nsh]
 
 # a prior moel parameters
-m1 = [2.3,1.7,0.0,0.0,0.,deg2rad(25), deg2rad(40), deg2rad(55), deg2rad(90),deg2rad(90)]
+m1 = [2.2,1.5,0.0,0.0,0.,deg2rad(25), deg2rad(40), deg2rad(55), deg2rad(90),deg2rad(90)]
 
 C1 = thomsen2moduli(m1[1],m1[2],ρ,m1[3],m1[4],m1[5])
 
@@ -60,15 +60,3 @@ println()
 dcalc = _gc(vcat([C[1,1], C[1,3], C[3,3], C[5,5], C[6,6]], anglep, anglesv, anglesh), ρ, np, nsv, nsh)
 println("Observations: obs | calc")
 show(IOContext(stdout), "text/plain",[dobs  dcalc])
-
-
-#=
-function testgradient(x)
-    r = zeros(eltype(x),2length(x))
-    for (c,elem) in enumerate(x)
-        r[2c-1] = elem
-        r[2c] = atan(exp(elem))
-    end
-    return r
-end
-=#
