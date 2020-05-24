@@ -64,7 +64,7 @@ end
 function vpvsYoungsPoisson(vp,vs,ρ)
 
     nu = (0.5*(vp/vs)^2 - 1)/((vp/vs)^2 - 1)
-    E = ρ*Vs^2*2*(1+nu)
+    E = ρ*vs^2*2*(1+nu)
 
     return E, nu
 end
