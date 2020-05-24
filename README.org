@@ -1,0 +1,13 @@
+* VTIModuli
+
+** What is this
+This is a super basic module providing functins to convert elastic moduli (right now just for VTI media) to wavespeeds, phase angles and velocities to group angles and velocities, and works with Thomsen parameters.
+
+The module also provides functions to invert wave velocity data to obtain moduli and/or Thomsen parameters. Requires https://github.com/nbrantut/NewtonMethods.jl.
+
+** Comments
+Right now I have implemented a rather stupid type called =VMeasure=, which stores group angle, group velocity, std on group angle and std on log(Vgroup), so that it is a bit simpler to manipulate input when conducting inversion.
+
+Everything is super messy right now but the code is working as intended for basic cases.
+
+A full working example is included in the =test.jl= file.
