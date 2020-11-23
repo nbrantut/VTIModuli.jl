@@ -18,7 +18,7 @@ function vphaseSH(θ,VS0,γ)
     return VS0*sqrt(1 + 2*γ*sin(θ)^2)
 end
 
-function vphaseP(θ,c,ρ)
+function vphaseP(θ,c::AbstracMatrix,ρ)
     stsq = sin(θ)^2
     ctsq = cos(θ)^2
     D = sqrt(((c[1,1]-c[5,5])*stsq - (c[3,3]-c[5,5])*ctsq)^2 +
@@ -27,7 +27,7 @@ function vphaseP(θ,c,ρ)
     return sqrt(rv/(2ρ))
 end
 
-function vphaseSV(θ,c,ρ)
+function vphaseSV(θ,c::Matrix,ρ)
     stsq = sin(θ)^2
     ctsq = cos(θ)^2
     D = sqrt(((c[1,1]-c[5,5])*stsq - (c[3,3]-c[5,5])*ctsq)^2 +
@@ -36,18 +36,18 @@ function vphaseSV(θ,c,ρ)
     return sqrt(rv/(2ρ))
 end
 
-function vphaseSH(θ,c,ρ)
+function vphaseSH(θ,c::AbstracMatrix,ρ)
     return sqrt((c[6,6]*sin(θ)^2 + c[5,5]*cos(θ)^2)/ρ)
 end
 
-function moduli2thomsen(c)
+function moduli2thomsen(c::AbstracMatrix)
     epsilon = (c[1,1] - c[3,3])/(2*c[3,3])
     delta = ((c[1,3]+c[5,5])^2 - (c[3,3]-c[5,5])^2)/(2*c[3,3]*(c[3,3]-c[5,5]))
     gamma = (c[6,6]-c[5,5])/(2*c[5,5])
     return epsilon, delta, gamma
 end
 
-function velocities0(c,ρ)
+function velocities0(c::AbstractMatrix,ρ)
     return (sqrt(c[3,3]/ρ), sqrt(c[5,5]/ρ))
 end
 

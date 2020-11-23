@@ -9,14 +9,14 @@ include("invert.jl")
 println("Running test...")
 println("Make synthetic data...")
 
-m0 = [2,1.2,0.1,0.15,0.03,deg2rad(25), deg2rad(40), deg2rad(55), deg2rad(90),deg2rad(90),deg2rad(90)]
+m0 = [2,1.2,0.1,0.15,0.03,deg2rad(28), deg2rad(39), deg2rad(58), deg2rad(90),deg2rad(58),deg2rad(90)]
 ρ = 1.
 
 C0 = thomsen2moduli(m0[1],m0[2],ρ,m0[3],m0[4],m0[5])
 
 np=4
-nsv=1
-nsh=1
+nsv=0
+nsh=2
 
 args = (np, nsv, nsh)
 
