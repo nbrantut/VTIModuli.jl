@@ -1,17 +1,11 @@
+"""
+VMeasure is type containing the group angle (in radians), group velocity (in m/s, or km/s), error on group angle (in radians), error on log(v).
+"""
 struct VMeasure
     angle::Real    # group angle (radians)
     value::Real  # group velocity
     err_angle::Real   # error on group angle
     err_value::Real  # error on log(v)
-end
-
-"""
-    VMeasure(angle::Real, value::Real, err_angle::Real, err_value::Real)
-
-Generate a VMeasure variable containing the group angle (in radians), group velocity (in m/s, or km/s), error on group angle (in radians), error on log(v).
-"""
-function VMeasure(angle::Real, value::Real, err_angle::Real, err_value::Real)
-    return VMeasure(angle, value, err_angle, err_value)
 end
 
 """
