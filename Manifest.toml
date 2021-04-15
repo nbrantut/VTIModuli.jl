@@ -1,2 +1,8 @@
 # This file is machine-generated - editing it directly is not advised
 
+[[NewtonMethods]]
+git-tree-sha1 = "45603df30162a86e4795d7a326833ed75222b75b"
+repo-rev = "master"
+repo-url = "https://github.com/BMElsigood/NewtonMethods.jl.git"
+uuid = "3f801f47-33eb-4a39-a93c-698c5356c36d"
+version = "0.1.0"

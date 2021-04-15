@@ -3,5 +3,8 @@ uuid = "b384fe3e-63ee-4285-97e7-28d65bd880b4"
 authors = ["Nicolas Brantut <nicolas.brantut@normalesup.org>"]
 version = "0.1.0"
 
+[deps]
+NewtonMethods = "3f801f47-33eb-4a39-a93c-698c5356c36d"
+
 [compat]
 julia = "1"
