@@ -136,7 +136,7 @@ function stiffmatrixTI(E,nu)
     c[4,4] = (1-2nu)/2
     c[5,5] = (1-2nu)/2
     c[6,6] = (1-2nu)/2
-    return Symmetric(c)
+    return Symmetric(c).*c0
 end
 
 """
