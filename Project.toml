@@ -1,3 +1,12 @@
+name = "VTIModuli"
+uuid = "b384fe3e-63ee-4285-97e7-28d65bd880b4"
+authors = ["Nicolas Brantut <nicolas.brantut@normalesup.org>"]
+version = "0.1.0"
+
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+NewtonMethods = "3f801f47-33eb-4a39-a93c-698c5356c36d"
 Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
+
+[compat]
+julia = "1"
