@@ -167,15 +167,21 @@ function dvPdthetav(θ,VP0VS0,ϵ,δ)
 
     f = 1 - VP0VS0^(-2)
 
-    a = sqrt((δ+f-δ*cos(4θ)-4*ϵ*cos(2θ)*sin(θ)^2+4*ϵ^2*sin(θ)^4)/f)
+    # dont know where this came from but it is clearly wrong...
+    #a = sqrt((δ+f-δ*cos(4θ)-4*ϵ*cos(2θ)*sin(θ)^2+4*ϵ^2*sin(θ)^4)/f)
     
-    vpv = (δ*sin(4θ) + ϵ*sin(2θ)*(1+ϵ-(2+ϵ)*cos(2θ) + a))/(a*(2+2*ϵ*sin(θ)^2 + f*(-1+a)))
+    #vpv = (δ*sin(4θ) + ϵ*sin(2θ)*(1+ϵ-(2+ϵ)*cos(2θ) + a))/(a*(2+2*ϵ*sin(θ)^2 + f*(-1+a)))
 
+    a = sqrt(2*f*(f + δ) + 2*f*ϵ + 3*ϵ^2 - 4*ϵ*(f + ϵ)*cos(2θ) + (-2*f*δ + 2*f*ϵ + ϵ^2)* cos(4θ))
+
+    vpv = (2*sin(2θ)*(ϵ + (sqrt(2)*(ϵ*(f+ϵ) - (ϵ^2+2*f*(ϵ-δ))*cos(2θ)))/a))/
+    (4-2*f+2*ϵ-2*ϵ*cos(2θ)+sqrt(2)*a)
+    
     return vpv
 end
 
 """
-    dvPdthetav(θ, VP0VS0, ϵ, δ)
+    dvSVdthetav(θ, VP0VS0, ϵ, δ)
 
 Compute (1/v)∂v/∂θ, derivative of SV wave phase velocity  with respect to phase angle θ, normalised by Vsv, based on ratio Vp₀/Vs₀ (P and S wave speed along symmetry axis) and Thomsen parameters ϵ and δ.
 """
@@ -183,10 +189,16 @@ function dvSVdthetav(θ,VP0VS0,ϵ,δ)
 
     f = 1 - VP0VS0^(-2)
 
-    a = sqrt((δ+f-δ*cos(4θ)-4*ϵ*cos(2θ)*sin(θ)^2+4*ϵ^2*sin(θ)^4)/f)
+    # dont know where this came from but it is clearly wrong...
+    #a = sqrt((δ+f-δ*cos(4θ)-4*ϵ*cos(2θ)*sin(θ)^2+4*ϵ^2*sin(θ)^4)/f)
     
-    vpv = (δ*sin(4θ) - ϵ*sin(2θ)*(-1-ϵ+(2+ϵ)*cos(2θ) + a))/(a*(-2-2*ϵ*sin(θ)^2 + f*(1+a)))
+    #vpv = (δ*sin(4θ) - ϵ*sin(2θ)*(-1-ϵ+(2+ϵ)*cos(2θ) + a))/(a*(-2-2*ϵ*sin(θ)^2 + f*(1+a)))
 
+    a = sqrt(2*f*(f + δ) + 2*f*ϵ + 3*ϵ^2 - 4*ϵ*(f + ϵ)*cos(2θ) + (-2*f*δ + 2*f*ϵ + ϵ^2)* cos(4θ))
+
+    vpv = -(2*sin(2θ)*(ϵ + (sqrt(2)*(-ϵ*(f+ϵ) + (ϵ^2+2*f*(ϵ-δ))*cos(2θ)))/a))/
+    (-4+2*f-2*ϵ+2*ϵ*cos(2θ)+sqrt(2)*a)
+    
     return vpv
 end
 
